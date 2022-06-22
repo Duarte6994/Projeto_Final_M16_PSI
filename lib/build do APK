@@ -1,0 +1,33 @@
+
+
+
+
+
+
+flutter build apk --release --no-sound-null-safety
+
+
+ CustomPaint(
+                 painter: appbar_add(),
+                  child: Container(height: 0),
+          ),
+
+
+           ElevatedButton(
+                          onPressed: () async {
+                            User? user = await loginUsingEmailPassword(Email: _emailController.text, Password: _passwordController.text, context: context);
+                            print(user);
+                            if(user!=null)
+                            {
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => pedidos()));
+                            }
+                          },
+                          child: Text(
+                            "Entrar",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            shape: StadiumBorder(),
+                            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 132),
+                          ),
+                        ),
